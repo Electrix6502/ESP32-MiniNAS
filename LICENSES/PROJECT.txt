@@ -1,0 +1,4 @@
+ESP32-MiniNAS source: Copyright (C) 2026 MiniNAS contributors.
+SPDX-License-Identifier: LGPL-2.1-or-later
+Original vendor copyright and license notices are retained.
+See LGPL-2.1.txt and libsmb2-COPYING.txt.

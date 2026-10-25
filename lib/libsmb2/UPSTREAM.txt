@@ -1,0 +1,3 @@
+https://github.com/sahlberg/libsmb2
+Commit: 5199123de81d66e80f0d6c996449ea6501db6fcb
+See PATCHES.md for local changes.

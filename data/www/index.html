@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="de">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MiniNAS · ESP32</title><link rel="stylesheet" href="/style.css"><script defer src="/app.js"></script></head>
+<body><main>
+<header><a class="brand" href="/">◈ <span>MiniNAS</span></a><span class="device">ESP32-S3</span></header>
+<section class="intro"><span class="eyebrow">DEIN SPEICHER IM NETZWERK</span><h1>Klein. Offen.<br>Immer in Reichweite.</h1><p>Flash und SD-Karte, direkt in deinem lokalen Netzwerk.</p></section>
+<div class="connection"><span id="led" class="led"></span><span id="connection" role="status">Verbindung wird hergestellt …</span><button id="refresh" type="button">Aktualisieren ↗</button></div>
+<section class="volumes" aria-label="Speicher">
+<article><div class="volume-title"><span class="icon">▤</span><span class="tag">INTERN</span></div><h2>Flash</h2><p>LittleFS · 12 MiB Partition</p><strong id="flash-used">—</strong><progress id="flash-progress" value="0" max="100" aria-label="Flash-Belegung"></progress><div class="capacity" id="flash-capacity">Warte auf Gerät</div><button class="share" id="flash-share" type="button">Freigabepfad kopieren</button></article>
+<article><div class="volume-title"><span class="icon">▣</span><span class="tag">ERWEITERBAR</span></div><h2>SD-Karte</h2><p>FAT32 · externe Speicherkarte</p><strong id="sd-used">—</strong><progress id="sd-progress" value="0" max="100" aria-label="SD-Belegung"></progress><div class="capacity" id="sd-capacity">Warte auf Gerät</div><button class="share" id="sd-share" type="button">Freigabepfad kopieren</button></article>
+</section>
+<section class="system"><h2>Gerätestatus</h2><dl><div><dt>IP-Adresse</dt><dd id="ip">—</dd></div><div><dt>WLAN-Signal</dt><dd id="rssi">—</dd></div><div><dt>Laufzeit</dt><dd id="uptime">—</dd></div><div><dt>Freier Heap</dt><dd id="heap">—</dd></div><div><dt>Freies PSRAM</dt><dd id="psram">—</dd></div><div><dt>SMB-Verbindungen</dt><dd id="clients">—</dd></div></dl></section>
+<aside>Offene Freigaben: Alle erreichbaren Netzwerkgeräte können Dateien lesen und ändern. Die Webseite liegt auf der Flashfreigabe im Ordner <code>www</code>.</aside>
+<footer><span>MiniNAS / Arduino + PlatformIO</span><span id="updated">Noch keine Statusdaten</span></footer>
+</main></body></html>

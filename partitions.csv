@@ -1,0 +1,6 @@
+# Name, Type, SubType, Offset, Size, Flags
+nvs,       data, nvs,     0x9000,   0x5000,
+# Reserve 0xE000..0xFFFF for Arduino's boot_app0 upload image.
+factory,   app,  factory, 0x10000,  0x3F0000,
+# Subtype 0x82 is used by this pinned toolchain; image format is LittleFS.
+flashfs,   data, spiffs,  0x400000, 0xC00000,

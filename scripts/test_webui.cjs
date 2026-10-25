@@ -1,0 +1,6 @@
+const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict'),path=require('node:path');
+const elements=new Map();const get=id=>{if(!elements.has(id))elements.set(id,{textContent:'',addEventListener(){}});return elements.get(id);};
+const status={ip:'192.168.1.50',rssi:-51,uptimeSeconds:4531,heapFree:160000,psramSize:8388608,psramFree:8000000,smbReady:true,smbClients:1,smbHandles:2,sdStatus:'Pins nicht konfiguriert',volumes:[{name:'flash',ready:true,total:12582912,used:100000},{name:'sd',ready:false,total:0,used:0}]};
+const context={document:{getElementById:get},fetch:async()=>({ok:true,json:async()=>status}),AbortController,Date,Number,String,Math,setTimeout(){return 1;},clearTimeout(){},setInterval(){},navigator:{},window:{}};
+vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../data/www/app.js'),'utf8'),context);
+setTimeout(()=>{assert.equal(get('flash-share').textContent,String.fromCharCode(92,92)+status.ip+String.fromCharCode(92)+'flash');assert.equal(get('sd-share').disabled,true);assert.ok(get('connection').textContent.includes('SMB bereit'));assert.equal(get('ip').textContent,status.ip);console.log('PASS UI: status, UNC path, missing SD');},20);
